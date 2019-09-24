@@ -1,0 +1,2 @@
+rootProject.name = 'nike-riposte-integration'
+include "nike-riposte-integration-core-code","nike-riposte-integration-remote-tests"

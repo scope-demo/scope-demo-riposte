@@ -1,0 +1,48 @@
+version: "3.4"
+
+services:
+
+  riposte-server:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
+    image: riposte/scope-riposte-integration-server
+    environment:
+      - SCOPE_APIKEY
+      - SCOPE_API_ENDPOINT
+      - SCOPE_SERVICE=riposte-server
+      - CI
+      - JENKINS_URL
+      - BUILD_ID
+      - BUILD_NUMBER
+      - BUILD_URL
+      - GIT_COMMIT=${GIT_COMMIT}
+    volumes:
+      - ~/.scope:/root/.scope
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  riposte-tests:
+    build:
+      context: .
+      dockerfile: ./docker/tests/Dockerfile
+    image: riposte/scope-riposte-integration-tests
+    depends_on:
+      - riposte-server
+    links:
+      - riposte-server
+    volumes:
+      - ~/.scope:/root/.scope
+    environment:
+      - CONCURRENT_REQUESTS=100
+      - SCOPE_APIKEY
+      - SCOPE_API_ENDPOINT
+      - CI
+      - JENKINS_URL
+      - BUILD_ID
+      - BUILD_NUMBER
+      - BUILD_URL
+      - GIT_COMMIT=${GIT_COMMIT}

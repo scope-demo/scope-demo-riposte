@@ -2,7 +2,7 @@
 
 _Description of your service goes here._
 
-(NOTE: This project was forked from the 
+(NOTE: This project is based on 
 [Riposte Microservice Template](https://github.com/Nike-Inc/riposte-microservice-template).
 See that template project's readme for some general details on working with a Riposte project.) 
 

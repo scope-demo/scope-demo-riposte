@@ -2,18 +2,17 @@
 
 _Description of your service goes here._
 
-(NOTE: This project was instantiated from the 
+(NOTE: This project is based on 
 [Riposte Microservice Template](https://github.com/Nike-Inc/riposte-microservice-template).
 See that template project's readme for some general details on working with a Riposte project.) 
 
 ## Scope - Local Development
 
-1. Select the target `Scope Instance` in the `Scope Native App`.
-2. Execute the following command on the project folder:
+1. With the correct endpoint selected in the Scope Desktop App, execute the following `docker-compose` command locally inside the project folder:
 ```bash
 $> docker-compose up --build --abort-on-container-exit --exit-code-from riposte-tests
 ``` 
-3. Finally, access to the `Scope Test Report` through your `Scope Native App` once the script had finished.
+2. Once the tests have finished executing, you can access the `Scope Test Report` directly through the `Scope Native App`.
 
 
 ## Information for integrating clients

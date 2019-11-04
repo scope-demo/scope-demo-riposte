@@ -14,7 +14,7 @@ apply plugin: 'application'
 // Define args for the application plugin so that `./gradlew run` launches the app with the correct system properties.
 //      NOTE: We have to define these here, between the application and shadow plugins, due to: https://github.com/johnrengelman/shadow/issues/336
 mainClassName = "com.undefinedlabs.Main"
-applicationDefaultJvmArgs = [ "-javaagent:./.scope/scope-agent-0.2.1-beta.6.jar", "-D@appId=" + project.name , "-D@environment=local" ]
+applicationDefaultJvmArgs = [ "-javaagent:./.scope/scope-agent-0.2.1.jar", "-D@appId=" + project.name , "-D@environment=local" ]
 
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'groovy'

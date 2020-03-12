@@ -1,6 +1,8 @@
-scope:
-  code_path: true
-  code_path_base_packages: "com.undefinedlabs"
-  instrumentation:
-    http:
-      payloads: true
+code_path:
+  enabled: true
+  base_packages: "com.undefinedlabs.scope"
+instrumentation:
+  http:
+    payloads: true
+  db:
+    statement_values: true

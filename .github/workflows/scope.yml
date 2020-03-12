@@ -10,6 +10,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} build"
-    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} up --abort-on-container-exit --exit-code-from riposte-tests"
-    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} down -v"
+    - run: "docker-compose -p scope-riposte-11-jdk build --no-cache"
+    - run: "docker-compose -p scope-riposte-11-jdk up --abort-on-container-exit --exit-code-from riposte-tests"
+      env:
+        SCOPE_DSN: ${{secrets.SCOPE_DSN}}
+        GITHUB_REPOSITORY: ${{github.GITHUB_REPOSITORY}}
+        GITHUB_SHA: ${{github.GITHUB_SHA}}
+        GITHUB_WORKSPACE: ${{github.GITHUB_WORKSPACE}}
+        GITHUB_RUN_ID: ${{github.GITHUB_RUN_ID}}
+        GITHUB_RUN_NUMBER: ${{github.GITHUB_RUN_NUMBER}}
+    - run: "docker-compose -p scope-riposte-11-jdk down -v"

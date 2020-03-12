@@ -8,15 +8,13 @@ services:
       dockerfile: ./docker/server/Dockerfile
     image: riposte/scope-riposte-integration-server
     environment:
-      - SCOPE_APIKEY
-      - SCOPE_API_ENDPOINT
+      - SCOPE_DSN
       - SCOPE_SERVICE=riposte-server
-      - CI
-      - JENKINS_URL
-      - BUILD_ID
-      - BUILD_NUMBER
-      - BUILD_URL
-      - GIT_COMMIT=${GIT_COMMIT}
+      - GITHUB_REPOSITORY
+      - GITHUB_SHA
+      - GITHUB_WORKSPACE
+      - GITHUB_RUN_ID
+      - GITHUB_RUN_NUMBER
     volumes:
       - ~/.scope:/root/.scope
     healthcheck:
@@ -38,11 +36,9 @@ services:
       - ~/.scope:/root/.scope
     environment:
       - CONCURRENT_REQUESTS=100
-      - SCOPE_APIKEY
-      - SCOPE_API_ENDPOINT
-      - CI
-      - JENKINS_URL
-      - BUILD_ID
-      - BUILD_NUMBER
-      - BUILD_URL
-      - GIT_COMMIT=${GIT_COMMIT}
+      - SCOPE_DSN
+      - GITHUB_REPOSITORY
+      - GITHUB_SHA
+      - GITHUB_WORKSPACE
+      - GITHUB_RUN_ID
+      - GITHUB_RUN_NUMBER

@@ -1,0 +1,15 @@
+name: Scope
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} build"
+    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} up --abort-on-container-exit --exit-code-from riposte-tests"
+    - run: "COMMIT=${GIT_COMMIT} docker-compose -p 11-jdk-${GIT_COMMIT} down -v"

@@ -20,3 +20,4 @@ jobs:
         GITHUB_RUN_ID: ${{github.GITHUB_RUN_ID}}
         GITHUB_RUN_NUMBER: ${{github.GITHUB_RUN_NUMBER}}
     - run: "docker-compose -p scope-riposte-11-jdk down -v"
+

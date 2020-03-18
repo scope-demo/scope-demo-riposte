@@ -1,3 +1,5 @@
+[![Scope](https://app.scope.dev/api/badge/b4efdb06-41dd-4109-9910-433d1cae87e4/default)](https://app.scope.dev/external/v1/explore/b774c8da-2494-4ede-8d2f-b0321ff3cd7c/b4efdb06-41dd-4109-9910-433d1cae87e4/default?branch=master)
+
 # nike-riposte-integration
 
 _Description of your service goes here._

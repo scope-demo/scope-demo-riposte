@@ -35,7 +35,7 @@ task functionalTest(type: Test, dependsOn: "testClasses") {
         displayGranularity = 0
     }
 
-    jvmArgs '-javaagent:./../.scope/scope-agent-0.5.1.jar'
+    jvmArgs '-javaagent:./../.scope/scope-agent-0.6.0-beta.1.jar'
 
     doFirst {
         String remoteTestEnv = System.getProperty('remoteTestEnv')
